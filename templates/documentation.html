@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chef BLSTM API Documentation</title>
+  </head>
+  <body>
+    <main style="margin: 10px 0">
+      <header style="text-align: center">
+        <h1 style="color: var(--color-primary)">Chef BLSTM API Documentation</h1>
+        <p>
+          Visit the
+          <a
+            href="https://chef-blstm.onrender.com/"
+            style="text-decoration: none; color: var(--color-accent); font-weight: 700"
+            >website</a
+          >!
+        </p>
+      </header>
+
+      <div style="background: var(--color-secondary); margin: 0 30px; margin-top: 30px">
+        <div style="background: var(--color-accent); display: flex; align-items: center; padding: 20px">
+          <span class="pill call_type">POST</span>
+          <code class="pill endpoint">/post/prediction</code>
+          <h2 style="color: var(--color-secondary)">get_prediction()</h2>
+        </div>
+        <div style="background: var(--color-secondary); padding: 20px">
+          <p>
+            To get a prediction, make a POST request to the following endpoint:
+            <code>/post/prediction</code>
+          </p>
+          <strong>Request Body:</strong>
+          <pre>
+    {
+        <strong>"ingredients":</strong> [List of ingredients separated by commas (e.g. selectedNERs)]
+    }
+    </pre
+          >
+          <strong>Response:</strong>
+          <pre>
+    {
+        "prediction": {
+          <strong>title:</strong> string (e.g. Chicken Adobo);
+          <strong>ingredients:</strong> string[] (e.g. ['5 pcs chicken breasts', '1 cup soy sauce','1/2 cup vinegar', etc.]); 
+          <strong>instructions:</strong> string[] (e.g. ['chop garlic and onion', 'add salt and pepper to chicken','sear the chicken in a hot oil', etc.]);
+          <strong>ner_tags: string[]</strong> (e.g. ['chicken breasts', 'soy sauce','vinegar', etc.]);
+        }
+    }
+    </pre>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <style>
+    :root {
+      --color-white: rgb(255, 255, 255);
+      --color-black: rgb(12 8 3);
+      --color-background: rgb(247 235 222);
+      --color-primary: rgb(245 126 0);
+      --color-secondary: rgb(244 225 205);
+      --color-accent: rgb(200 125 45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--color-background);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .pill {
+      background: rgba(221, 221, 221, 0.767);
+      border-radius: 5px;
+      font-family: monospace;
+      color: var(--color-primary);
+      padding: 5px 10px;
+      margin-right: 10px;
+      font-weight: 900;
+    }
+
+    .endpoint {
+      background: rgba(221, 221, 221, 0.767);
+    }
+
+    .call_type {
+      color: green;
+    }
+  </style>
+</html>
