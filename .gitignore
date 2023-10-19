@@ -1,6 +1,5 @@
 # Personal Files
-
-model_files/
+model/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
