@@ -1,8 +1,13 @@
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
+from keras import layers, models, optimizers, callbacks
+
+from model_files import tokenizer_vars as tv
+from model_files import LSTM_class
+from model_files import constants as c
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/prediction": {"origins": "http://localhost:3000"}})
 
 @app.route('/')
 def show_docs():
@@ -17,11 +22,6 @@ def post_prediction():
     return jsonify({"prediction": prediction})
 
 def predict(ingredients):
-    from model_files import tokenizer_vars as tv
-    from model_files import LSTM_class
-    from model_files import constants as c
-
-    from keras import layers, models, optimizers, callbacks
     
     model_emb = models.load_model(f'model/')
 
