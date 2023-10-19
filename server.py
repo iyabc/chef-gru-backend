@@ -8,7 +8,7 @@ CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 def show_docs():
     return render_template('documentation.html')
 
-@app.route('/post/prediction', methods=['POST'])  
+@app.route('/api/prediction', methods=['POST'])  
 def post_prediction():
     ingredients = request.json.get('ingredients')
     print(ingredients)
