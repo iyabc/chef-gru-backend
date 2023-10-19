@@ -7,26 +7,27 @@ from model_files import LSTM_class
 from model_files import constants as c
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/prediction": {"origins": "http://localhost:3000"}})
+CORS(app)
+
+model_emb = models.load_model('model/')
+tokenizer = tv.getTokenizer()
+max_len = 230
 
 @app.route('/')
 def show_docs():
     return render_template('documentation.html')
 
 @app.route('/api/prediction', methods=['POST'])  
-def post_prediction():
+def get_prediction():
     ingredients = request.json.get('ingredients')
+    if not ingredients:
+        return jsonify({"error": "Ingredients not provided!"}), 400
+
     print(ingredients)
     prediction = predict(ingredients)
-
     return jsonify({"prediction": prediction})
 
 def predict(ingredients):
-    
-    model_emb = models.load_model(f'model/')
-
-    tokenizer = tv.getTokenizer()
-    max_len = 230
     step = max_len-1
     
     input_prefix = f"{ingredients}"
