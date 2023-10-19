@@ -7,7 +7,7 @@ from model_files import LSTM_class
 from model_files import constants as c
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000", "https://chef-blstm.onrender.com"]}})
 
 model_emb = models.load_model('model/')
 tokenizer = tv.getTokenizer()
