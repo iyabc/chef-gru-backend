@@ -1,6 +1,9 @@
 # Personal Files
-model/
+utils
+final_model_64_512
 client_secret.json
+*.ipynb
+*.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
