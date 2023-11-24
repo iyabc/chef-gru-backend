@@ -2,7 +2,6 @@
 utils
 final_model_gru_v100
 client_secret.json
-*.ipynb
 *.db
 
 # Byte-compiled / optimized / DLL files

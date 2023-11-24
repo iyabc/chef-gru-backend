@@ -11,7 +11,6 @@ import database
 app = Flask(__name__)
 CORS(app)
 
-# database.delete_table("evaluations_table")s
 database.create_table()
 database.view_table('evaluations_table')
 

@@ -10,7 +10,7 @@ def create_table():
     CREATE TABLE IF NOT EXISTS evaluations_table (
         id INTEGER PRIMARY KEY,
         contact_number TEXT,
-        years_experience INTEE,
+        years_experience INTEGER,
         user_input TEXT,
         recipe_output TEXT,
         clarity_rating INTEGER,
@@ -29,8 +29,9 @@ def view_table(table_name):
     cursor = conn.cursor()
     cursor.execute(f'SELECT * FROM {table_name}')
     result = cursor.fetchall()
-    print(result)
+    # print(result)
     conn.close()
+    return result
 
 def insert_row(contact_number, years_experience, user_input, recipe_output, clarity_rating, creativity_rating, suitability_rating, doability_rating, likelihood_to_try_rating, overall_rating):  
     conn = get_database_connection()

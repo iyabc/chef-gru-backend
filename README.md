@@ -14,3 +14,5 @@ to deploy backend:
 - run ngrok http --domain=innocent-parrot-divine.ngrok-free.app http://127.0.0.1:8080 or run ngrok http --domain=innocent-parrot-divine.ngrok-free.app 80 (depende asa na port imong
  backend ga run)
 - run backend locally
+
+ngrok http --domain=innocent-parrot-divine.ngrok-free.app http://127.0.0.1:8080
